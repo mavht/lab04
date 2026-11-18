@@ -12,7 +12,18 @@ Re-mould it nearer to the Heart's Desire!";
 
 int strindex(const char source[], char pattern[])
 {
-    // TODO: write your code here
+    char *p = (char *)source;
+    char *last = NULL;
+    
+    while ((p = strstr(p, pattern)) != NULL) {
+        last = p;
+        p = p + 1;
+    }
+    
+    if (last != NULL)
+        return last - source;
+    else
+        return -1;
 }
 
 // DO NOT change the code below
